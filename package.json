@@ -1,0 +1,28 @@
+{
+  "name": "tomorrow_io",
+  "version": "1.0.0",
+  "description": "Tomorrow.io backend infra home assignment.",
+  "main": "app/index.js",
+  "scripts": {
+    "dev": "nodemon -L app/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js"
+  },
+  "author": "Simon Savosnick",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^4.15.4",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "2.2.1"
+  }
+}

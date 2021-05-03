@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./
+      target: dev
+    command: npm run-script dev
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    environment:
+      MONGODB_URI: 'mongodb://root:123456@mongodb:27017/tomorrowio?authSource=admin'
+      NODE_ENV: 'development'
+      DEBUG: 'nodejs-docker-express:*'
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: tomorrowio
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    volumes:
+      - ./db/:/data/db
