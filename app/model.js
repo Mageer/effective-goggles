@@ -107,7 +107,7 @@ weatherSchema.statics.loadCsvData = async function (filePath) {
     console.log('Insertion done!');
   } catch (err) {
     console.error(err);
-    throw new Error('Injestion failed!');
+    throw new Error('Ingestion failed!');
   }
 };
 
