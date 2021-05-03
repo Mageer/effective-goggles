@@ -19,7 +19,7 @@ Alternatively, the application can be run with `npm start` with the ENV `MONGODB
 
 ## Usage
 
-The application contains three rest endpoints:
+The application contains three REST endpoints:
 
 ### 1. weather/data?lat=50&lon=-37.5
 
@@ -49,6 +49,6 @@ The model for the application was replaced and is currently using MongoDB as DB.
 
 ### Potential Improvements
 
-An obvious improvement that could be made, would be to modify the `weather/reload-data` endpoint and instead let the client supply the data directly through the body, a uri or even opening a socket to the server to stream the data. Obviously all of these options would need require an authication layer as well.
+An obvious improvement that could be made, would be to modify the `weather/reload-data` endpoint and instead let the client supply the data directly through the body, a URI or even opening a socket to the server to stream the data. Obviously all of these options would require an authentication layer as well.
 
 Another improvement would be to cache the data from `getForecastData`. This is the reason that it was chosen to first fetch the forecast data before calculating the summary instead of simply doing the aggregation directly in the DB. There's a tradeoff going on here. On the one hand, if we try to fetch the summary much more frequently than the forecast data, then we might be wasting a lot of network bandwidth shipping all the data back when we may never ask for the forecast data. On the other hand, by not performing the aggregates in the DB, we might be reducing some of the load on the DB and allow for more requests to be done in general.
