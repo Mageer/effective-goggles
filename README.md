@@ -25,6 +25,8 @@ The application contains three rest endpoints:
 
 As described in the assignment description. In addition, returns 404 whenever invalid coordinates are queried for, or if no forecast exists for said coordinates. For example `weather/data?lat=50&lon=-37.2` will result in 404 because all the supplied data contains coordinates in increments of 0.5.
 
+> Note: The supplied timestamp does not follow _ISO 8601_, i.e it's missing a _Z_ at the end, as a result, MongoDB assumes the timestamp is in local time and retracts 3 from the timestamp (Israel is GMT+3). It is easy to "fix" this, however, it is left as is, due to the _ISO 8601_ violation otherwise.
+
 ### 2. weather/summarize?lat=50&lon=-37.5
 
 Same as above.
